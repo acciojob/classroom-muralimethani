@@ -61,7 +61,7 @@ public class StudentRepository {
 
         Student student = null;
         if (studentMap.containsKey(name)){
-            return studentMap.get(name);
+            student= studentMap.get(name);
         }
         return student;
     }
@@ -73,7 +73,7 @@ public class StudentRepository {
 
         Teacher teacher = null;
         if (teacherMap.containsKey(name)){
-            return teacherMap.get(name);
+            teacher= teacherMap.get(name);
         }
         return  teacher;
 
