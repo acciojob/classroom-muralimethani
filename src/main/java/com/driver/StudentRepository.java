@@ -114,6 +114,8 @@ public class StudentRepository {
                     studentMap.remove(student);
                 }
             }
+            studentTeacherMap.remove(teacherName);
+
         }
 
         if (teacherMap.containsKey(teacherName)){
