@@ -10,11 +10,11 @@ import java.util.List;
 @Repository
 public class StudentRepository {
 
-    private  static HashMap<String, Student> studentMap = new HashMap<>();
+    private   HashMap<String, Student> studentMap = new HashMap<>();
 
-    private  static HashMap<String, Teacher> teacherMap = new HashMap<>();
+    private   HashMap<String, Teacher> teacherMap = new HashMap<>();
 
-    private  static HashMap<String , List<String>> studentTeacherMap = new HashMap<String, List<String>>();
+    private   HashMap<String , List<String>> studentTeacherMap = new HashMap<String, List<String>>();
 
 
     public StudentRepository(HashMap<String, Student> studentMap, HashMap<String, Teacher> teacherMap, HashMap<String, List<String>> studentTeacherMap) {
@@ -23,16 +23,22 @@ public class StudentRepository {
         this.studentTeacherMap = studentTeacherMap;
     }
 
+    //addStudent
+
     public void addStudent(Student student){
         String name = student.getName();
         studentMap.put(name, student);
     }
 
+
+    //addTeacher
     public void addTeacher(Teacher teacher){
         String  name = teacher.getName();
         teacherMap.put(name, teacher);
     }
 
+
+    //addStudentTeacherPair
     public  void addStudentTeacherPair(String student, String teacher){
         if (studentMap.containsKey(student) && teacherMap.containsKey(teacher)){
             List<String> listOfStudents = new ArrayList<>();
@@ -46,6 +52,8 @@ public class StudentRepository {
         }
     }
 
+
+    //getStudentByName
     public Student getStudentByName(String name){
 //        Student  s = studentMap.get(name);
 //        return s;
@@ -56,6 +64,8 @@ public class StudentRepository {
         }
         return student;
     }
+
+    // getTeacherByName
 
     public  Teacher getTeacherByName(String  name){
 //        return teacherMap.get(name);
@@ -68,6 +78,8 @@ public class StudentRepository {
 
     }
 
+//    getStudentsByTeacherName
+
     public  List<String> getStudentsByTeacherName(String  name){
         List<String> listOfStudents = new ArrayList<>();
         if (teacherMap.containsKey(name)){
@@ -78,6 +90,8 @@ public class StudentRepository {
         return  listOfStudents;
     }
 
+
+    //getAllStudents
     public   List<String>getAllStudents (){
 
         List<String> students=new ArrayList<>();
@@ -87,6 +101,8 @@ public class StudentRepository {
         return students;
     }
 
+
+    //deleteTeacherByName
     public void deleteTeacherByName(String teacherName){
         List<String > studentsList = new ArrayList<>();
         if (studentTeacherMap.containsKey(teacherName)){
@@ -104,6 +120,8 @@ public class StudentRepository {
         }
     }
 
+
+    //deleteAllTeachers
 
     public void deleteAllTeachers(){
         teacherMap.clear();
