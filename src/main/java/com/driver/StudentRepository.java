@@ -40,8 +40,9 @@ public class StudentRepository {
 
     //addStudentTeacherPair
     public  void addStudentTeacherPair(String student, String teacher){
+        List<String> listOfStudents = new ArrayList<>();
         if (studentMap.containsKey(student) && teacherMap.containsKey(teacher)){
-            List<String> listOfStudents = new ArrayList<>();
+
             if(studentTeacherMap.containsKey(teacher)){
                 listOfStudents = studentTeacherMap.get(teacher);
             }
