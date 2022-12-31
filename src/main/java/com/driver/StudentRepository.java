@@ -47,12 +47,25 @@ public class StudentRepository {
     }
 
     public Student getStudentByName(String name){
-        Student  s = studentMap.get(name);
-        return s;
+//        Student  s = studentMap.get(name);
+//        return s;
+
+        Student student = null;
+        if (studentMap.containsKey(name)){
+            return studentMap.get(name);
+        }
+        return student;
     }
 
     public  Teacher getTeacherByName(String  name){
-        return teacherMap.get(name);
+//        return teacherMap.get(name);
+
+        Teacher teacher = null;
+        if (teacherMap.containsKey(name)){
+            return teacherMap.get(name);
+        }
+        return  teacher;
+
     }
 
     public  List<String> getStudentsByTeacherName(String  name){
