@@ -40,9 +40,9 @@ public class StudentRepository {
 
     //addStudentTeacherPair
     public  void addStudentTeacherPair(String student, String teacher){
-        List<String> listOfStudents = new ArrayList<>();
-        if (studentMap.containsKey(student) && teacherMap.containsKey(teacher)){
 
+        if (studentMap.containsKey(student) && teacherMap.containsKey(teacher)){
+            List<String> listOfStudents = new ArrayList<>();
             if(studentTeacherMap.containsKey(teacher)){
                 listOfStudents = studentTeacherMap.get(teacher);
             }
@@ -95,11 +95,12 @@ public class StudentRepository {
     //getAllStudents
     public   List<String>getAllStudents (){
 
-        List<String> students=new ArrayList<>();
-        for(String student: studentMap.keySet()){
-            students.add(student);
-        }
-        return students;
+//        List<String> students=new ArrayList<>();
+//        for(String student: studentMap.keySet()){
+//            students.add(student);
+//        }
+//        return students;
+        return new ArrayList<>(studentMap.keySet());
     }
 
 
